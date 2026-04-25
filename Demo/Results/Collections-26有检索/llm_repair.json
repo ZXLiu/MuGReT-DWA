@@ -1,0 +1,26 @@
+[
+    {
+        "patch": "protected Object readResolve() {\n    calculateHashCode(keys);\n    return this;\n}",
+        "diff": "--- \n+++ \n@@ -1,4 +1,4 @@\n-private Object readResolve() {\n+protected Object readResolve() {\n     calculateHashCode(keys);\n     return this;\n }\n",
+        "valid": "valid",
+        "num": 15
+    },
+    {
+        "patch": "protected Object readResolve() {               \n    calculateHashCode(keys);\n    return this;\n}",
+        "diff": "--- \n+++ \n@@ -1,4 +1,4 @@\n-private Object readResolve() {\n+protected Object readResolve() {               \n     calculateHashCode(keys);\n     return this;\n }\n",
+        "valid": "valid",
+        "num": 1
+    },
+    {
+        "patch": "private Object readResolve() {\n    calculateHashCode(keys);\n    return this;\n}",
+        "diff": "",
+        "valid": "invalid_other",
+        "num": 3
+    },
+    {
+        "patch": "private Object readResolve() {               \n    calculateHashCode(keys);\n    return this;\n}",
+        "diff": "--- \n+++ \n@@ -1,4 +1,4 @@\n-private Object readResolve() {\n+private Object readResolve() {               \n     calculateHashCode(keys);\n     return this;\n }\n",
+        "valid": "invalid_other",
+        "num": 1
+    }
+]

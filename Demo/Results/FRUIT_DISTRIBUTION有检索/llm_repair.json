@@ -1,0 +1,86 @@
+[
+    {
+        "patch": "public static int fruit_distribution(String s, int n) {\n    int result = n;\n    String[] fruits = s.split(\" \");\n    for (String str : fruits) {\n        int cnt = Integer.parseInt(str);\n        result -= cnt;\n    }\n    return result;\n}",
+        "diff": "--- \n+++ \n@@ -1,6 +1,7 @@\n public static int fruit_distribution(String s, int n) {\n     int result = n;\n-    for (String str : s.split(\" \")) {\n+    String[] fruits = s.split(\" \");\n+    for (String str : fruits) {\n         int cnt = Integer.parseInt(str);\n         result -= cnt;\n     }\n",
+        "valid": "wrong",
+        "num": 1
+    },
+    {
+        "patch": "public static int fruit_distribution(String s, int n) {\n    int result = n;\n    for (String str : s.split(\" \")) {\n        try {\n            int cnt = Integer.parseInt(str);\n            result -= cnt;\n        } catch (Exception e) {\n            // handle the exception\n        }\n    }\n    return result;\n}",
+        "diff": "--- \n+++ \n@@ -1,8 +1,12 @@\n public static int fruit_distribution(String s, int n) {\n     int result = n;\n     for (String str : s.split(\" \")) {\n-        int cnt = Integer.parseInt(str);\n-        result -= cnt;\n+        try {\n+            int cnt = Integer.parseInt(str);\n+            result -= cnt;\n+        } catch (Exception e) {\n+            // handle the exception\n+        }\n     }\n     return result;\n }\n",
+        "valid": "valid",
+        "num": 1
+    },
+    {
+        "patch": "public static int fruit_distribution(String s, int n) {\n    int result = n;\n    for (String str : s.split(\" \")) {\n        try {\n            int cnt = Integer.parseInt(str);\n            result -= cnt;\n        } catch (Exception e) {\n            // skip the invalid count\n        }\n    }\n    return result;\n}",
+        "diff": "--- \n+++ \n@@ -1,8 +1,12 @@\n public static int fruit_distribution(String s, int n) {\n     int result = n;\n     for (String str : s.split(\" \")) {\n-        int cnt = Integer.parseInt(str);\n-        result -= cnt;\n+        try {\n+            int cnt = Integer.parseInt(str);\n+            result -= cnt;\n+        } catch (Exception e) {\n+            // skip the invalid count\n+        }\n     }\n     return result;\n }\n",
+        "valid": "valid",
+        "num": 5
+    },
+    {
+        "patch": "public static int fruit_distribution(String s, int n) {\n    int result = n;\n    for (String str : s.split(\" \")) {\n        int cnt = Integer.parseInt(str);\n        if (cnt > n) {\n            return -1;\n        }\n        result -= cnt;\n    }\n    return result;\n}",
+        "diff": "--- \n+++ \n@@ -2,6 +2,9 @@\n     int result = n;\n     for (String str : s.split(\" \")) {\n         int cnt = Integer.parseInt(str);\n+        if (cnt > n) {\n+            return -1;\n+        }\n         result -= cnt;\n     }\n     return result;\n",
+        "valid": "wrong",
+        "num": 1
+    },
+    {
+        "patch": "public static int fruit_distribution(String s, int n) {\n    int result = n;\n    for (String str : s.split(\" \")) {\n        int cnt = 0;\n        try {\n            cnt = Integer.parseInt(str);\n        } catch (NumberFormatException e) {\n            // skip the invalid fruit count\n        }\n        result -= cnt;\n    }\n    return result;\n}",
+        "diff": "--- \n+++ \n@@ -1,7 +1,12 @@\n public static int fruit_distribution(String s, int n) {\n     int result = n;\n     for (String str : s.split(\" \")) {\n-        int cnt = Integer.parseInt(str);\n+        int cnt = 0;\n+        try {\n+            cnt = Integer.parseInt(str);\n+        } catch (NumberFormatException e) {\n+            // skip the invalid fruit count\n+        }\n         result -= cnt;\n     }\n     return result;\n",
+        "valid": "valid",
+        "num": 1
+    },
+    {
+        "patch": "public static int fruit_distribution(String s, int n) {\n    int result = n;\n    String[] fruitCounts = s.split(\" \");\n    for (String str : fruitCounts) {\n        try {\n            int cnt = Integer.parseInt(str);\n            result -= cnt;\n        } catch (NumberFormatException e) {\n            // ignore invalid count\n        }\n    }\n    return result;\n}",
+        "diff": "--- \n+++ \n@@ -1,8 +1,13 @@\n public static int fruit_distribution(String s, int n) {\n     int result = n;\n-    for (String str : s.split(\" \")) {\n-        int cnt = Integer.parseInt(str);\n-        result -= cnt;\n+    String[] fruitCounts = s.split(\" \");\n+    for (String str : fruitCounts) {\n+        try {\n+            int cnt = Integer.parseInt(str);\n+            result -= cnt;\n+        } catch (NumberFormatException e) {\n+            // ignore invalid count\n+        }\n     }\n     return result;\n }\n",
+        "valid": "valid",
+        "num": 1
+    },
+    {
+        "patch": "public static int fruit_distribution(String s, int n) {\n    int result = n;\n    for (String str : s.split(\" \")) {\n        try {\n            int cnt = Integer.parseInt(str);\n            result -= cnt;\n        } catch (Exception e) {\n            // ignore invalid input\n        }\n    }\n    return result;\n}",
+        "diff": "--- \n+++ \n@@ -1,8 +1,12 @@\n public static int fruit_distribution(String s, int n) {\n     int result = n;\n     for (String str : s.split(\" \")) {\n-        int cnt = Integer.parseInt(str);\n-        result -= cnt;\n+        try {\n+            int cnt = Integer.parseInt(str);\n+            result -= cnt;\n+        } catch (Exception e) {\n+            // ignore invalid input\n+        }\n     }\n     return result;\n }\n",
+        "valid": "valid",
+        "num": 2
+    },
+    {
+        "patch": "public static int fruit_distribution(String s, int n) {\n    int result = n;\n    for (String str : s.split(\" \")) {\n        int cnt = Integer.parseInt(str);\n        if (cnt > 0) {\n            result -= cnt;\n        }\n    }\n    return result;\n}",
+        "diff": "--- \n+++ \n@@ -2,7 +2,9 @@\n     int result = n;\n     for (String str : s.split(\" \")) {\n         int cnt = Integer.parseInt(str);\n-        result -= cnt;\n+        if (cnt > 0) {\n+            result -= cnt;\n+        }\n     }\n     return result;\n }\n",
+        "valid": "wrong",
+        "num": 1
+    },
+    {
+        "patch": "public static int fruit_distribution(String s, int n) {\n    int result = n;\n    for (String str : s.split(\" \")) {\n        int cnt;\n        try {\n            cnt = Integer.parseInt(str);\n        } catch (Exception e) {\n            return -1;\n        }\n        result -= cnt;\n    }\n    return result;\n}",
+        "diff": "--- \n+++ \n@@ -1,7 +1,12 @@\n public static int fruit_distribution(String s, int n) {\n     int result = n;\n     for (String str : s.split(\" \")) {\n-        int cnt = Integer.parseInt(str);\n+        int cnt;\n+        try {\n+            cnt = Integer.parseInt(str);\n+        } catch (Exception e) {\n+            return -1;\n+        }\n         result -= cnt;\n     }\n     return result;\n",
+        "valid": "wrong",
+        "num": 1
+    },
+    {
+        "patch": "public static int fruit_distribution(String s, int n) {\n    int result = n;\n    for (String str : s.split(\" \")) {\n        try {\n            int cnt = Integer.parseInt(str);\n            result -= cnt;\n        } catch (Exception e) {\n            // skip the invalid input\n        }\n    }\n    return result;\n}",
+        "diff": "--- \n+++ \n@@ -1,8 +1,12 @@\n public static int fruit_distribution(String s, int n) {\n     int result = n;\n     for (String str : s.split(\" \")) {\n-        int cnt = Integer.parseInt(str);\n-        result -= cnt;\n+        try {\n+            int cnt = Integer.parseInt(str);\n+            result -= cnt;\n+        } catch (Exception e) {\n+            // skip the invalid input\n+        }\n     }\n     return result;\n }\n",
+        "valid": "valid",
+        "num": 1
+    },
+    {
+        "patch": "public static int fruit_distribution(String s, int n) {\n    int result = n;\n    for (String str : s.split(\" \")) {\n        try {\n            int cnt = Integer.parseInt(str);\n            result -= cnt;\n        } catch (Exception e) {\n            // skip the invalid fruit count\n        }\n    }\n    return result;\n}",
+        "diff": "--- \n+++ \n@@ -1,8 +1,12 @@\n public static int fruit_distribution(String s, int n) {\n     int result = n;\n     for (String str : s.split(\" \")) {\n-        int cnt = Integer.parseInt(str);\n-        result -= cnt;\n+        try {\n+            int cnt = Integer.parseInt(str);\n+            result -= cnt;\n+        } catch (Exception e) {\n+            // skip the invalid fruit count\n+        }\n     }\n     return result;\n }\n",
+        "valid": "valid",
+        "num": 2
+    },
+    {
+        "patch": "public static int fruit_distribution(String s, int n) {\n    int result = n;\n    String[] strArray = s.split(\" \");\n    for (int i = 0; i < strArray.length; i++) {\n        try {\n            int cnt = Integer.parseInt(strArray[i]);\n            result -= cnt;\n        } catch (Exception e) {\n            // skip the invalid count\n        }\n    }\n    return result;\n}\n\n\n// Provide a fix for the buggy",
+        "diff": "--- \n+++ \n@@ -1,8 +1,16 @@\n public static int fruit_distribution(String s, int n) {\n     int result = n;\n-    for (String str : s.split(\" \")) {\n-        int cnt = Integer.parseInt(str);\n-        result -= cnt;\n+    String[] strArray = s.split(\" \");\n+    for (int i = 0; i < strArray.length; i++) {\n+        try {\n+            int cnt = Integer.parseInt(strArray[i]);\n+            result -= cnt;\n+        } catch (Exception e) {\n+            // skip the invalid count\n+        }\n     }\n     return result;\n }\n+\n+\n+// Provide a fix for the buggy\n",
+        "valid": "uncompilable",
+        "num": 1
+    },
+    {
+        "patch": "public static int fruit_distribution(String s, int n) {\n    int result = n;\n    for (String str : s.split(\" \")) {\n        try {\n            int cnt = Integer.parseInt(str);\n            result -= cnt;\n        } catch (Exception e) {\n            // skip the invalid ID\n        }\n    }\n    return result;\n}",
+        "diff": "--- \n+++ \n@@ -1,8 +1,12 @@\n public static int fruit_distribution(String s, int n) {\n     int result = n;\n     for (String str : s.split(\" \")) {\n-        int cnt = Integer.parseInt(str);\n-        result -= cnt;\n+        try {\n+            int cnt = Integer.parseInt(str);\n+            result -= cnt;\n+        } catch (Exception e) {\n+            // skip the invalid ID\n+        }\n     }\n     return result;\n }\n",
+        "valid": "valid",
+        "num": 1
+    },
+    {
+        "patch": "public static int fruit_distribution(String s, int n) {\n    int result = n;\n    for (String str : s.split(\" \")) {\n        try {\n            int cnt = Integer.parseInt(str);\n            result -= cnt;\n        } catch (NumberFormatException e) {\n            // skip the invalid number\n        }\n    }\n    return result;\n}",
+        "diff": "--- \n+++ \n@@ -1,8 +1,12 @@\n public static int fruit_distribution(String s, int n) {\n     int result = n;\n     for (String str : s.split(\" \")) {\n-        int cnt = Integer.parseInt(str);\n-        result -= cnt;\n+        try {\n+            int cnt = Integer.parseInt(str);\n+            result -= cnt;\n+        } catch (NumberFormatException e) {\n+            // skip the invalid number\n+        }\n     }\n     return result;\n }\n",
+        "valid": "valid",
+        "num": 1
+    }
+]

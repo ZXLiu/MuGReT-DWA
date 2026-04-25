@@ -1,0 +1,47 @@
+// Provide a fix for the buggy function
+
+// Buggy Function
+public static List<Integer> extract_valid_ids(String[] rawData) {
+    List<Integer> validIds = new ArrayList<>();
+    int i = 0;
+    while (i < rawData.length) {
+        int id = Integer.parseInt(rawData[i]);
+        if (id > 0) {
+            validIds.add(id);
+        }
+        i++;
+    }
+    return validIds;
+}
+
+// Fixed Function
+public static List<Integer> extract_valid_ids(String[] rawData) {
+    List<Integer> validIds = new ArrayList<>();
+    int i = 0;
+    while (i < rawData.length) {
+        try {
+            int id = Integer.parseInt(rawData[i]);
+            if (id > 0) {
+                validIds.add(id);
+            }
+        } catch (Exception e) {
+            // skip the invalid ID
+        }
+        i++;
+    }
+    return validIds;
+}
+
+// Provide a fix for the buggy function
+
+// Buggy Function
+public static int fruit_distribution(String s, int n) {
+    int result = n;
+    for (String str : s.split(" ")) {
+        int cnt = Integer.parseInt(str);
+        result -= cnt;
+    }
+    return result;
+}
+
+// Fixed Function

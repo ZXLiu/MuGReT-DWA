@@ -1,0 +1,50 @@
+[
+    {
+        "patch": "private Object readResolve() {\n    calculateHashCode(keys);\n    return this;\n}",
+        "diff": "",
+        "valid": "invalid_other",
+        "num": 10
+    },
+    {
+        "patch": "private Object readResolve() {\n    calculateHashCode(keys);\n    return readResolve();\n}",
+        "diff": "--- \n+++ \n@@ -1,4 +1,4 @@\n private Object readResolve() {\n     calculateHashCode(keys);\n-    return this;\n+    return readResolve();\n }\n",
+        "valid": "invalid_other",
+        "num": 2
+    },
+    {
+        "patch": "private Object readResolve() throws ObjectStreamException {\n    calculateHashCode(keys);\n    return this;\n}",
+        "diff": "--- \n+++ \n@@ -1,4 +1,4 @@\n-private Object readResolve() {\n+private Object readResolve() throws ObjectStreamException {\n     calculateHashCode(keys);\n     return this;\n }\n",
+        "valid": "invalid_other",
+        "num": 3
+    },
+    {
+        "patch": "private Object readResolve() throws IOException, ClassNotFoundException {\n    calculateHashCode(keys);\n    return this;\n}",
+        "diff": "--- \n+++ \n@@ -1,4 +1,4 @@\n-private Object readResolve() {\n+private Object readResolve() throws IOException, ClassNotFoundException {\n     calculateHashCode(keys);\n     return this;\n }\n",
+        "valid": "invalid_other",
+        "num": 1
+    },
+    {
+        "patch": "private Object readResolve() {\n    calculateHashCode(keys);\n    return new HashMap(keys, values);\n}",
+        "diff": "--- \n+++ \n@@ -1,4 +1,4 @@\n private Object readResolve() {\n     calculateHashCode(keys);\n-    return this;\n+    return new HashMap(keys, values);\n }\n",
+        "valid": "invalid_other",
+        "num": 1
+    },
+    {
+        "patch": "private Object readResolve() {\n    return this;\n}",
+        "diff": "--- \n+++ \n@@ -1,4 +1,3 @@\n private Object readResolve() {\n-    calculateHashCode(keys);\n     return this;\n }\n",
+        "valid": "invalid_other",
+        "num": 1
+    },
+    {
+        "patch": "private Object readResolve() {\n    calculateHashCode(keys);\n    return new Data(keys, values);\n}",
+        "diff": "--- \n+++ \n@@ -1,4 +1,4 @@\n private Object readResolve() {\n     calculateHashCode(keys);\n-    return this;\n+    return new Data(keys, values);\n }\n",
+        "valid": "invalid_other",
+        "num": 1
+    },
+    {
+        "patch": "private Object readResolve() {\n    calculateHashCode(keys);\n    return readObject();\n}",
+        "diff": "--- \n+++ \n@@ -1,4 +1,4 @@\n private Object readResolve() {\n     calculateHashCode(keys);\n-    return this;\n+    return readObject();\n }\n",
+        "valid": "invalid_other",
+        "num": 1
+    }
+]

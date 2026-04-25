@@ -1,0 +1,20 @@
+{
+    "FRUIT_DISTRIBUTION": {
+        "dataset": "human-eval-java",
+        "buggy": "public static int fruit_distribution(String s, int n) {\n    int result = n;\n    for (String str : s.split(\" \")) {\n        int cnt = Integer.parseInt(str);\n        result -= cnt;\n    }\n    return result;\n}",
+        "fix": "public static int fruit_distribution(String s, int n) {\n    int result = n;\n    for (String str : s.split(\" \")) {\n        try {            \n            int cnt = Integer.parseInt(str);\n            result -= cnt;        \n        } catch (Exception e) {\n            continue;\n        }\n    }\n    return result;\n}",
+        "start": 15,
+        "end": 23,
+        "retrieval_buggy": "public static List<Integer> extract_valid_ids(String[] rawData) {\n    List<Integer> validIds = new ArrayList<>();\n    int i = 0;\n    while (i < rawData.length) {\n        int id = Integer.parseInt(rawData[i]);\n        if (id > 0) {\n            validIds.add(id);\n        }\n        i++;\n    }\n    return validIds;\n}",
+        "retrieval_fix": "public static List<Integer> extract_valid_ids(String[] rawData) {\n    List<Integer> validIds = new ArrayList<>();\n    int i = 0;\n    while (i < rawData.length) {\n        try {\n            int id = Integer.parseInt(rawData[i]);\n            if (id > 0) {\n                validIds.add(id);\n            }\n        } catch (Exception e) {\n            // skip the invalid ID\n        }\n        i++;\n    }\n    return validIds;\n}"
+    },
+    "Collections-26": {
+        "dataset": "defects4j",
+        "buggy": "private Object readResolve() {\n    calculateHashCode(keys);\n    return this;\n}",
+        "fix": "protected Object readResolve() {\n    calculateHashCode(keys);\n    return this;\n}",
+        "start": 277,
+        "end": 280,
+        "retrieval_buggy": "private java.lang.Object readResolve() {               \n    threadGroups = new java.util.LinkedList<>();\n    return this;\n}",
+        "retrieval_fix": "protected java.lang.Object readResolve() {       \n    threadGroups = new java.util.LinkedList<>();\n    return this;\n}"
+    }
+}

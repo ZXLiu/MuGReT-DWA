@@ -1,0 +1,44 @@
+{
+    "gpu": {
+        "use": true,
+        "id": 0
+    },
+
+    "model": "MuGReT",
+
+    "out_dir": "/home/liutongxue/PycharmProject/MuGReT-DWA/MuGReT/out",
+
+    "dataset_params":{
+        "name": "BigCloneBench",
+        "skip_length": 3000
+    },
+
+    "params": {
+        "seed": 41,
+        "epochs": 5,
+        "batch_size": 32,
+        "init_lr": 0.0005,
+        "lr_reduce_factor": 0.5,
+        "lr_schedule_patience": 2,
+        "min_lr": 1e-6,
+        "weight_decay": 1e-4,
+        "print_epoch_interval": 1,
+        "save_epoch_interval": 1,
+        "eval_epoch_interval": 1,
+        "threshold": 0
+    },
+
+    "net_params": {
+        "embedding_dim": 128,
+        "edgelen": 20,
+        "num_layers": 3,
+        "num_heads": 8,
+        "dim_head": 64,
+        "pool": "set2set",
+        "dropout": 0.1,
+        "residual": true,
+        "intra-attention": true,
+        "cross-attention": true,
+        "set2set": true
+    }
+}

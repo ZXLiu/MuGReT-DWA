@@ -1,0 +1,38 @@
+[
+    {
+        "patch": "public static int fruit_distribution(String s, int n) {\n    int result = n;\n    String[] fruits = s.split(\" \");\n    for (String str : fruits) {\n        int cnt = Integer.parseInt(str);\n        result -= cnt;\n    }\n    return result;\n}",
+        "diff": "--- \n+++ \n@@ -1,6 +1,7 @@\n public static int fruit_distribution(String s, int n) {\n     int result = n;\n-    for (String str : s.split(\" \")) {\n+    String[] fruits = s.split(\" \");\n+    for (String str : fruits) {\n         int cnt = Integer.parseInt(str);\n         result -= cnt;\n     }\n",
+        "valid": "wrong",
+        "num": 2
+    },
+    {
+        "patch": "public static int fruit_distribution(String s, int n) {\n    int result = n;\n    for (String str : s.split(\" \")) {\n        int cnt = Integer.parseInt(str);\n        result -= cnt;\n    }\n    return result;\n}",
+        "diff": "",
+        "valid": "wrong",
+        "num": 14
+    },
+    {
+        "patch": "public static int fruit_distribution(String s, int n) {\n    int result = n;\n    String[] strings = s.split(\" \");\n    for (String str : strings) {\n        int cnt = Integer.parseInt(str);\n        result -= cnt;\n    }\n    return result;\n}",
+        "diff": "--- \n+++ \n@@ -1,6 +1,7 @@\n public static int fruit_distribution(String s, int n) {\n     int result = n;\n-    for (String str : s.split(\" \")) {\n+    String[] strings = s.split(\" \");\n+    for (String str : strings) {\n         int cnt = Integer.parseInt(str);\n         result -= cnt;\n     }\n",
+        "valid": "wrong",
+        "num": 1
+    },
+    {
+        "patch": "public static int fruit_distribution(String s, int n) {\n    int result = 0;\n    for (String str : s.split(\" \")) {\n        int cnt = Integer.parseInt(str);\n        result += cnt;\n    }\n    return result;\n}",
+        "diff": "--- \n+++ \n@@ -1,8 +1,8 @@\n public static int fruit_distribution(String s, int n) {\n-    int result = n;\n+    int result = 0;\n     for (String str : s.split(\" \")) {\n         int cnt = Integer.parseInt(str);\n-        result -= cnt;\n+        result += cnt;\n     }\n     return result;\n }\n",
+        "valid": "wrong",
+        "num": 1
+    },
+    {
+        "patch": "public static int fruit_distribution(String s, int n) {\n    int result = 0;\n    for (String str : s.split(\" \")) {\n        int cnt = Integer.parseInt(str);\n        result += cnt;\n    }\n    return n - result;\n}\n\n// Write a function to find the largest among three numbers.",
+        "diff": "--- \n+++ \n@@ -1,8 +1,10 @@\n public static int fruit_distribution(String s, int n) {\n-    int result = n;\n+    int result = 0;\n     for (String str : s.split(\" \")) {\n         int cnt = Integer.parseInt(str);\n-        result -= cnt;\n+        result += cnt;\n     }\n-    return result;\n+    return n - result;\n }\n+\n+// Write a function to find the largest among three numbers.\n",
+        "valid": "uncompilable",
+        "num": 1
+    },
+    {
+        "patch": "public static int fruit_distribution(String s, int n) {\n    int result = n;\n    for (String str : s.split(\" \")) {\n        int cnt = Integer.parseInt(str);\n        result += cnt;\n    }\n    return result;\n}",
+        "diff": "--- \n+++ \n@@ -2,7 +2,7 @@\n     int result = n;\n     for (String str : s.split(\" \")) {\n         int cnt = Integer.parseInt(str);\n-        result -= cnt;\n+        result += cnt;\n     }\n     return result;\n }\n",
+        "valid": "wrong",
+        "num": 1
+    }
+]

@@ -1,0 +1,23 @@
+// Provide a fix for the buggy function
+
+// Buggy Function
+private java.lang.Object readResolve() {               
+    threadGroups = new java.util.LinkedList<>();
+    return this;
+}
+
+// Fixed Function
+protected java.lang.Object readResolve() {       
+    threadGroups = new java.util.LinkedList<>();
+    return this;
+}
+
+// Provide a fix for the buggy function
+
+// Buggy Function
+private Object readResolve() {
+    calculateHashCode(keys);
+    return this;
+}
+
+// Fixed Function
