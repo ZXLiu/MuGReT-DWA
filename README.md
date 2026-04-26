@@ -49,7 +49,7 @@ After obtaining the retrieval results, run the following command to execute the 
 python3 repair.py --model_name generative model name --batch_size batch_size --dataset defects4j or humanevaljava --chances beam search count --folder directory for storing model-generated patches --correct_patch_folder directory for storing plausible patches that pass test cases
 ```
 ## Demo
-We provide a demo using two examples from the paper's Case Study: 'FRUIT_DISTRIBUTION' and 'Collections-26.' The following commands allow you to directly compare the LLM's repair results with and without retrieval.
+We provide a demo using two examples from the paper's Case Study: `FRUIT_DISTRIBUTION` and `Collections-26`. The following commands allow you to directly compare the LLM's repair results with and without retrieval.
 ```bash
 cd Demo
 # Without Retrieval
