@@ -13,3 +13,27 @@ It is structured as follows:
 - [prompt.py](prompt.py) contains prompt settings for both with and without retrieval.
 - [reapir.py](repair.py) contains the entire repair process and serves as the main program entry point.
 - [utils.py](utils.py) contains common utility functions, such as reading and writing JSON files.
+
+## Guide
+### 1.Preparation
+To run this code, you first need to install the two benchmarks and the C2LLM code sequence retrieval model used in the paper.
+#### Benchmarks
+- Defects4J: [https://github.com/rjust/defects4j](https://github.com/rjust/defects4j)<br>
+- HumanEval-Java: [https://github.com/ASSERT-KTH/human-eval-java](https://github.com/ASSERT-KTH/human-eval-java)
+#### Retrieval Model
+- C2LLM: [https://huggingface.co/codefuse-ai/C2LLM-0.5B](https://huggingface.co/codefuse-ai/C2LLM-0.5B)
+### 2.MuGReT Algorithm Implementation
+Execute the following commands to train MuGReT. All training configurations and model parameters are located in 'MuGReT-DWA/MuGReT/configs/bcb.json':
+```bash
+cd MuGReT
+python3 main.py --config ./configs/bcb.json
+```
+### 3.DWA Algorithm Implementation
+
+
+
+
+
+
+
+
