@@ -23,7 +23,7 @@ To run this code, you first need to install the two benchmarks and the C2LLM cod
 #### Retrieval Model
 - C2LLM: [https://huggingface.co/codefuse-ai/C2LLM-0.5B](https://huggingface.co/codefuse-ai/C2LLM-0.5B)
 ### 2.MuGReT Algorithm Implementation
-Execute the following commands to train MuGReT. All training configurations and model parameters are located in 'MuGReT-DWA/MuGReT/configs/bcb.json':
+Execute the following commands to train MuGReT. All training configurations and model parameters are located in `MuGReT-DWA/MuGReT/configs/bcb.json`:
 ```bash
 cd MuGReT
 python3 main.py --config ./configs/bcb.json
