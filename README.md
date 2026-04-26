@@ -29,11 +29,31 @@ cd MuGReT
 python3 main.py --config ./configs/bcb.json
 ```
 ### 3.DWA Algorithm Implementation
-
-
-
-
-
-
-
-
+Execute the following commands to train DWA.
+```bash
+cd DWA
+python3 main.py
+```
+### 4.Retrieval Implementation
+After training the MuGReT and DWA models, you can use them for retrieval. Following the settings described in the paper, retrieval is categorized into three types: code sequence retrieval (C2LLM), code graph retrieval (MuGReT), and hybrid retrieval (DWA). The corresponding operations are as follows:
+```bash
+cd Retrieval
+# C2LLM Retrieval
+python3 C2LLM.py
+# MuGReT and DWA Retrieval
+python3 MuGReT_And_DWA.py
+```
+### 5.Repair Implementation
+After obtaining the retrieval results, run the following command to execute the final repair workflow.
+```bash
+python3 repair.py --model_name generative model name --batch_size batch_size --dataset defects4j or humanevaljava --chances beam search count --folder directory for storing model-generated patches --correct_patch_folder directory for storing plausible patches that pass test cases
+```
+## Demo
+We provide a demo using two examples from the paper's Case Study: 'FRUIT_DISTRIBUTION' and 'Collections-26.' The following commands allow you to directly compare the LLM's repair results with and without retrieval.
+```bash
+cd Demo
+# Without Retrieval
+python3 demo_repair.py --use_retrieval false
+# With Retrieval
+python3 demo_repair.py --use_retrieval true
+```
